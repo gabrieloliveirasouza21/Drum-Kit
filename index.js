@@ -13,9 +13,12 @@ document.addEventListener("keydown", (event)=>{
 
 let somzao = (key) =>{
 
+    pressed(key);
+
     switch(key){
         case "w":
             var som = new Audio("sounds/crash.mp3");
+
             som.play();
             break;
         case "a":
@@ -47,6 +50,20 @@ let somzao = (key) =>{
         
     }
 }
+
+let pressed = (current) => {
+    
+    let classe = document.querySelector("." + current);
+
+    classe.classList.add("pressed");
+
+    setTimeout(()=>{
+        classe.classList.remove("pressed")
+    },100);
+
+    
+}
+
 
 // var sound = new Audio('sounds/tom-1.mp3');
 //         sound.play();
